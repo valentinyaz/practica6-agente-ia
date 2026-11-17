@@ -1,0 +1,14 @@
+# Dependencias (se reinstalan con npm install)
+node_modules/
+
+# Llaves y configuración privada (NUNCA subir)
+.env
+.env.*
+!.env.example
+
+# Base de datos local con las conversaciones
+ai-backend/data/historial.json
+
+# Configuración local del editor / Claude
+.claude/
+.DS_Store

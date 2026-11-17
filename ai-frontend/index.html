@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat con Agente IA</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f9; display: flex; justify-content: center; height: 100vh; align-items: center; margin: 0; }
+    .chat-container { width: 400px; background: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; height: 540px; }
+    .chat-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; background: #007bff; color: white; font-weight: bold; }
+    .chat-header label { font-weight: normal; font-size: 13px; }
+    .chat-header button { background: transparent; color: white; border: 1px solid white; border-radius: 4px; cursor: pointer; font-size: 12px; padding: 4px 8px; }
+    .chat-box { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; border-bottom: 1px solid #ddd; }
+    .message { padding: 10px; border-radius: 6px; max-width: 80%; line-height: 1.4; white-space: pre-wrap; }
+    .user { background: #007bff; color: white; align-self: flex-end; }
+    .assistant { background: #e9ecef; color: #333; align-self: flex-start; }
+    .error { background: #f8d7da; color: #721c24; align-self: flex-start; }
+    .input-area { display: flex; padding: 10px; background: #fff; }
+    .input-area input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px; outline: none; }
+    .input-area button { padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 4px; margin-left: 5px; cursor: pointer; }
+    .input-area button:hover { background: #0056b3; }
+    .input-area button:disabled { background: #999; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+  <div class="chat-container">
+    <div class="chat-header">
+      <span>Agente IA</span>
+      <label><input type="checkbox" id="streamToggle" checked> Streaming</label>
+      <button onclick="nuevaConversacion()">Nueva</button>
+    </div>
+    <div id="chatBox" class="chat-box"></div>
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Escribe tu mensaje..." maxlength="2000"
+             onkeypress="handleKeyPress(event)">
+      <button id="sendBtn" onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
