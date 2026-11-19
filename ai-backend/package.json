@@ -5,12 +5,14 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "bd": "/opt/homebrew/opt/mysql@8.4/bin/mysqld --no-defaults --datadir=../mysql-sakila/data --port=3307 --bind-address=127.0.0.1 --socket=/tmp/mysql-sakila-3307.sock --mysqlx=OFF"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.10.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "mysql2": "^3.24.6"
   }
 }

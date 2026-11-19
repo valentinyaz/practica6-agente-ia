@@ -86,10 +86,12 @@ async function sendMessage() {
 }
 
 async function nuevaConversacion() {
-  try { await fetch(`${API_URL}/historial/${sessionId}`, { method: 'DELETE' }); } catch {}
+  // Primero limpiar la pantalla y cambiar de sesión, luego borrar la anterior en el servidor
+  const sesionAnterior = sessionId;
+  document.getElementById('chatBox').innerHTML = '';
   try { localStorage.removeItem('sessionId'); } catch {}
   sessionId = obtenerSessionId();
-  document.getElementById('chatBox').innerHTML = '';
+  try { await fetch(`${API_URL}/historial/${sesionAnterior}`, { method: 'DELETE' }); } catch {}
 }
 
 function appendMessage(text, sender) {

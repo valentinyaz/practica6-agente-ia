@@ -12,3 +12,6 @@ ai-backend/data/historial.json
 # Configuración local del editor / Claude
 .claude/
 .DS_Store
+
+# Servidor MySQL local con Sakila (datos binarios, no se suben)
+mysql-sakila/
